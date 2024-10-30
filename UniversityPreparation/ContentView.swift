@@ -82,19 +82,12 @@ struct NameFormView: View {
     }
 
     private func saveName() {
-        // Create a FetchDescriptor to retrieve existing UserInfo records
         let fetchDescriptor = FetchDescriptor<UserInfo>()
-        
-        // Fetch existing UserInfo records and delete them
         if let existingUserInfo = try? modelContext.fetch(fetchDescriptor).first {
             modelContext.delete(existingUserInfo)
         }
-        
-        // Insert a new UserInfo entry with the updated name
         let newUserInfo = UserInfo(name: name)
         modelContext.insert(newUserInfo)
-        
-        // Save changes to SwiftData
         try! modelContext.save()
     }
 }
