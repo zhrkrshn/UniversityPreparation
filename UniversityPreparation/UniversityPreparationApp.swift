@@ -14,6 +14,6 @@ struct UniversityPreparationApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: [GradeInformation.self, ProgramInformation.self, EnrolledSubject.self])
+        .modelContainer(for: [UserInfo.self, GradeInformation.self, ProgramInformation.self, EnrolledSubject.self])
     }
 }
