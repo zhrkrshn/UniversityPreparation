@@ -10,53 +10,41 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
-
+    @Query(sort: \GradeInformation.GradeName) var grades: [GradeInformation]
+//    @Query private var items: [Item]
+    @Query(sort: \ProgramInformation.CreateTime) var programs: [ProgramInformation]
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                            .padding()
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
+    
+        
+        
+        NavigationStack{
+            //Add UI for Welcome, {Name}
+            //Add UI for GradeListContainer
+            List{
+                ForEach(grades) { grade in
+//                   GradeSheet(grade: grade)
                 }
             }
-        } detail: {
-            Text("Select an item")
+            //Add UI for ProgramListContainer
+            //Add List for Programs
+            //NavigationStack{} setup
         }
     }
-
-    private func addItem() {
+    
+    private func GradeSheet(grade: GradeInformation) {
         withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
+            //Build grade display
         }
     }
-
-    private func deleteItems(offsets: IndexSet) {
+    
+    private func ProgramSheet(program: ProgramInformation) {
         withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
-            }
+            //Build program display
         }
     }
 }
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+        .modelContainer(for: [GradeInformation.self, ProgramInformation.self], inMemory: true)
 }

@@ -9,13 +9,11 @@
 /* Begin PBXBuildFile section */
 		D5A69F182CD0697400071B03 /* UniversityPreparationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A69F172CD0697400071B03 /* UniversityPreparationApp.swift */; };
 		D5A69F1A2CD0697400071B03 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A69F192CD0697400071B03 /* ContentView.swift */; };
-		D5A69F1C2CD0697400071B03 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A69F1B2CD0697400071B03 /* Item.swift */; };
 		D5A69F1E2CD0697500071B03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5A69F1D2CD0697500071B03 /* Assets.xcassets */; };
 		D5A69F212CD0697500071B03 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5A69F202CD0697500071B03 /* Preview Assets.xcassets */; };
 		D5A69F2B2CD0697600071B03 /* UniversityPreparationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A69F2A2CD0697600071B03 /* UniversityPreparationTests.swift */; };
 		D5A69F352CD0697600071B03 /* UniversityPreparationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A69F342CD0697600071B03 /* UniversityPreparationUITests.swift */; };
 		D5A69F372CD0697600071B03 /* UniversityPreparationUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A69F362CD0697600071B03 /* UniversityPreparationUITestsLaunchTests.swift */; };
-		D5A69F462CD06E1A00071B03 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A69F452CD06E1A00071B03 /* AppData.swift */; };
 		D5A69F482CD06E8500071B03 /* EnrolledSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A69F472CD06E8500071B03 /* EnrolledSubject.swift */; };
 		D5A69F4A2CD06EE200071B03 /* GradeInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A69F492CD06EE200071B03 /* GradeInformation.swift */; };
 		D5A69F4C2CD06F4B00071B03 /* ProgramInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A69F4B2CD06F4B00071B03 /* ProgramInformation.swift */; };
@@ -42,7 +40,6 @@
 		D5A69F142CD0697400071B03 /* UniversityPreparation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniversityPreparation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5A69F172CD0697400071B03 /* UniversityPreparationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityPreparationApp.swift; sourceTree = "<group>"; };
 		D5A69F192CD0697400071B03 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		D5A69F1B2CD0697400071B03 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		D5A69F1D2CD0697500071B03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D5A69F202CD0697500071B03 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D5A69F262CD0697600071B03 /* UniversityPreparationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UniversityPreparationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,7 +47,6 @@
 		D5A69F302CD0697600071B03 /* UniversityPreparationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UniversityPreparationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5A69F342CD0697600071B03 /* UniversityPreparationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityPreparationUITests.swift; sourceTree = "<group>"; };
 		D5A69F362CD0697600071B03 /* UniversityPreparationUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityPreparationUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		D5A69F452CD06E1A00071B03 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		D5A69F472CD06E8500071B03 /* EnrolledSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrolledSubject.swift; sourceTree = "<group>"; };
 		D5A69F492CD06EE200071B03 /* GradeInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeInformation.swift; sourceTree = "<group>"; };
 		D5A69F4B2CD06F4B00071B03 /* ProgramInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramInformation.swift; sourceTree = "<group>"; };
@@ -106,8 +102,6 @@
 			children = (
 				D5A69F172CD0697400071B03 /* UniversityPreparationApp.swift */,
 				D5A69F192CD0697400071B03 /* ContentView.swift */,
-				D5A69F1B2CD0697400071B03 /* Item.swift */,
-				D5A69F452CD06E1A00071B03 /* AppData.swift */,
 				D5A69F492CD06EE200071B03 /* GradeInformation.swift */,
 				D5A69F4B2CD06F4B00071B03 /* ProgramInformation.swift */,
 				D5A69F472CD06E8500071B03 /* EnrolledSubject.swift */,
@@ -274,11 +268,9 @@
 			files = (
 				D5A69F1A2CD0697400071B03 /* ContentView.swift in Sources */,
 				D5A69F4C2CD06F4B00071B03 /* ProgramInformation.swift in Sources */,
-				D5A69F1C2CD0697400071B03 /* Item.swift in Sources */,
 				D5A69F182CD0697400071B03 /* UniversityPreparationApp.swift in Sources */,
 				D5A69F482CD06E8500071B03 /* EnrolledSubject.swift in Sources */,
 				D5A69F4A2CD06EE200071B03 /* GradeInformation.swift in Sources */,
-				D5A69F462CD06E1A00071B03 /* AppData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

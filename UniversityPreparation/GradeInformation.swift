@@ -10,12 +10,12 @@ import SwiftData
 
 @Model
 class GradeInformation{
-    var GradeName: String
+    @Attribute(.unique) var GradeName: Int
     var CurrentGradeScore: Float?
     var TargetGradeScore: Float?
     var EnrolledSubjects: [EnrolledSubject]?
     
-    init(GradeName: String, CurrentGradeScore: Float?, TargetGradeScore: Float?, EnrolledSubjects: [EnrolledSubject]?) {
+    init(GradeName: Int, CurrentGradeScore: Float?, TargetGradeScore: Float?, EnrolledSubjects: [EnrolledSubject]?) {
         self.GradeName = GradeName
         self.CurrentGradeScore = CurrentGradeScore
         self.TargetGradeScore = TargetGradeScore
