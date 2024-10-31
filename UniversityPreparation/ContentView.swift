@@ -42,7 +42,7 @@ struct ContentView: View {
                         Spacer()
                     }
                     HStack{
-                        Text(name.isEmpty ? "Step 1 of 4 :" : "")
+                        Text(name.isEmpty ? "Step 1 of 4:" : "")
                             .font(.subheadline)
                             .fontWeight(.light)
                             .padding(.leading, 22)
@@ -84,10 +84,19 @@ struct NameFormView: View {
     var body: some View {
         NavigationView {
             Form {
-                TextField("Enter your name", text: $name)
-                    .padding()
+                Label {
+                    Text("Enter your name")
+                        .font(.body)
+                        .foregroundColor(.primary)
+                } icon: {
+                    Image(systemName: "person.fill")
+                        .foregroundStyle(Color.mint)
+                }
+                TextField("Your Name", text: $name)
+                    
             }
-            .navigationTitle("Save your name!")
+            .font(.title3)
+            .fontWeight(.light)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save") {
