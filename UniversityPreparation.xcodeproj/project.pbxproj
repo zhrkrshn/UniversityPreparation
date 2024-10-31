@@ -17,6 +17,7 @@
 		D5A69F482CD06E8500071B03 /* EnrolledSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A69F472CD06E8500071B03 /* EnrolledSubject.swift */; };
 		D5A69F4A2CD06EE200071B03 /* GradeInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A69F492CD06EE200071B03 /* GradeInformation.swift */; };
 		D5A69F4C2CD06F4B00071B03 /* ProgramInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A69F4B2CD06F4B00071B03 /* ProgramInformation.swift */; };
+		D5A69F4E2CD424FE00071B03 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A69F4D2CD424FE00071B03 /* UserInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		D5A69F472CD06E8500071B03 /* EnrolledSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrolledSubject.swift; sourceTree = "<group>"; };
 		D5A69F492CD06EE200071B03 /* GradeInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeInformation.swift; sourceTree = "<group>"; };
 		D5A69F4B2CD06F4B00071B03 /* ProgramInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramInformation.swift; sourceTree = "<group>"; };
+		D5A69F4D2CD424FE00071B03 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				D5A69F172CD0697400071B03 /* UniversityPreparationApp.swift */,
 				D5A69F192CD0697400071B03 /* ContentView.swift */,
 				D5A69F492CD06EE200071B03 /* GradeInformation.swift */,
+				D5A69F4D2CD424FE00071B03 /* UserInfo.swift */,
 				D5A69F4B2CD06F4B00071B03 /* ProgramInformation.swift */,
 				D5A69F472CD06E8500071B03 /* EnrolledSubject.swift */,
 				D5A69F1D2CD0697500071B03 /* Assets.xcassets */,
@@ -270,6 +273,7 @@
 				D5A69F4C2CD06F4B00071B03 /* ProgramInformation.swift in Sources */,
 				D5A69F182CD0697400071B03 /* UniversityPreparationApp.swift in Sources */,
 				D5A69F482CD06E8500071B03 /* EnrolledSubject.swift in Sources */,
+				D5A69F4E2CD424FE00071B03 /* UserInfo.swift in Sources */,
 				D5A69F4A2CD06EE200071B03 /* GradeInformation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

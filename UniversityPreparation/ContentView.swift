@@ -8,15 +8,6 @@
 import SwiftUI
 import SwiftData
 
-@Model
-class UserInfo {
-    var name: String
-    
-    init(name: String) {
-        self.name = name
-    }
-}
-
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \GradeInformation.GradeName) var grades: [GradeInformation]
@@ -25,23 +16,50 @@ struct ContentView: View {
     
     @State private var isNameFormPresented = false
     @State private var name: String = ""
-
+    
+    
     var body: some View {
         NavigationStack() {
+
+//if text empty block
+            //shows default text
+            //enable action
+//else
+            //show standard wecome
+//if grade 11 empty
+
+
             HStack {
-                Text(name.isEmpty ? "Tap to enter a name!" : "Welcome, \(name)!")
-                    .padding(.leading, 20)
-                    .font(.largeTitle)
-                    .onTapGesture {
-                        isNameFormPresented = true
+                VStack{
+                    HStack{ //Welcome HStack
+                        Text(name.isEmpty ? "Welcome," : "Welcome,")
+                            .font(.largeTitle)
+                            .fontWeight(.light).padding(.leading, 20)
+                        Text(name.isEmpty ? "Student!" : "\(name)!")
+                            .font(.largeTitle)
+                            .fontWeight(.regular)
+                            .foregroundStyle(.mint)
+                        Spacer()
                     }
-                Spacer()
+                    HStack{
+                        Text(name.isEmpty ? "Step 1 of 4 :" : "")
+                            .font(.subheadline)
+                            .fontWeight(.light)
+                            .padding(.leading, 22)
+                        Text(name.isEmpty ? "Click to setup your name" : "")
+                            .font(.subheadline)
+                            .fontWeight(.light)
+                            .foregroundColor(Color.blue)
+                        Spacer()
+                    }.padding(.top, -10)
+                }  .onTapGesture {
+                    isNameFormPresented = true
+                }
             }
             .sheet(isPresented: $isNameFormPresented) {
                 NameFormView(name: $name)
             }
             .onAppear {
-                // Load the name from SwiftData if it exists
                 if let savedUserInfo = userInfo.first {
                     name = savedUserInfo.name
                 }
