@@ -11,12 +11,16 @@ import SwiftData
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \GradeInformation.GradeName) var grades: [GradeInformation]
-   
     @Query(sort: \ProgramInformation.CreateTime) var programs: [ProgramInformation]
-    @Query private var userInfo: [UserInfo]
+    @Query var userInfo: [UserInfo]
     
     @State private var isNameFormPresented = false
     @State private var name: String = ""
+    
+    @State var grade11Info: GradeInformation?
+    @State var isGrade11Setup = false
+    @State var grade12Info: GradeInformation?
+    @State var isGrade12Setup = false
     
     var body: some View {
         NavigationStack() {
@@ -79,7 +83,7 @@ struct ContentView: View {
                         Image(systemName: "square.and.pencil")
                         
                     }
-                    if grades.isEmpty {
+                    if !isGrade11Setup {
                         HStack{
                             Text("Step 2 of 4:")
                                 .font(.subheadline)
@@ -92,7 +96,7 @@ struct ContentView: View {
                             Spacer()
                         }.padding(.top, 0)
                     } else {
-                        
+                        //displayGradeLine(grade: grade11Info!)
                         
                     }
                     VStack{
@@ -230,6 +234,16 @@ struct ContentView: View {
                     .stroke(.gray, lineWidth: 1))
                 .shadow(color: .gray, radius: 3, x: 4, y: 4)
             }.padding([.leading, .trailing], 15)
+            .onAppear {
+                isGrade11Setup = !grades.isEmpty
+                grade11Info = grades.first ?? GradeInformation.init(GradeName: 11, CurrentGradeScore: 0.0, TargetGradeScore: 0.0, EnrolledSubjects: nil)
+
+                isGrade12Setup = !grades.isEmpty
+                grade12Info = grades.last ?? GradeInformation.init(GradeName: 12, CurrentGradeScore: 0.0, TargetGradeScore: 0.0, EnrolledSubjects: nil)
+            }
+
+            
+            
             HStack{
                 Spacer()
             }

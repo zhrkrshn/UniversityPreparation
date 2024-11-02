@@ -15,10 +15,10 @@ class GradeInformation{
     var TargetGradeScore: Float
     var EnrolledSubjects: [EnrolledSubject]?
     
-    init(GradeName: Int, CurrentGradeScore: Float?, TargetGradeScore: Float?, EnrolledSubjects: [EnrolledSubject]?) {
+    init(GradeName: Int, CurrentGradeScore: Float, TargetGradeScore: Float, EnrolledSubjects: [EnrolledSubject]?) {
         self.GradeName = GradeName
-        self.CurrentGradeScore = CurrentGradeScore!
-        self.TargetGradeScore = TargetGradeScore!
+        self.CurrentGradeScore = CurrentGradeScore
+        self.TargetGradeScore = TargetGradeScore
         self.EnrolledSubjects = EnrolledSubjects
     }
 }
