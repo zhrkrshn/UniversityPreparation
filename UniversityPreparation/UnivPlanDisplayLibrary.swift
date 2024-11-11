@@ -51,7 +51,7 @@ struct PrettySectionBuilder<ViewContent: View>: View {
 
 struct GradeInformationDisplay: View {
 
-    let gradeInformation: GradeInformation
+    @State var gradeInformation: GradeInformation
     
     @State private var showGradeDetailsOverlay = false
 
@@ -70,7 +70,7 @@ struct GradeInformationDisplay: View {
                 }
                 .sheet(isPresented: $showGradeDetailsOverlay) {
                     
-                GradeDetails(activeGrade: gradeInformation)
+                GradeDetails(activeGrade: $gradeInformation)
                 }
             VStack(alignment: .leading) {
                 HStack {
