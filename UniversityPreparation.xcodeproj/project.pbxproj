@@ -16,8 +16,12 @@
 		D5A69F372CD0697600071B03 /* UniversityPreparationUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A69F362CD0697600071B03 /* UniversityPreparationUITestsLaunchTests.swift */; };
 		D5A69F482CD06E8500071B03 /* EnrolledSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A69F472CD06E8500071B03 /* EnrolledSubject.swift */; };
 		D5A69F4A2CD06EE200071B03 /* GradeInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A69F492CD06EE200071B03 /* GradeInformation.swift */; };
-		D5A69F4C2CD06F4B00071B03 /* ProgramInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A69F4B2CD06F4B00071B03 /* ProgramInformation.swift */; };
 		D5A69F4E2CD424FE00071B03 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A69F4D2CD424FE00071B03 /* UserInfo.swift */; };
+		D5E8EE002CE1573900AD1F05 /* UniversityProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E8EDFF2CE1573900AD1F05 /* UniversityProgram.swift */; };
+		D5E8EE022CE1581300AD1F05 /* UnivPlanData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E8EE012CE1581300AD1F05 /* UnivPlanData.swift */; };
+		D5E8EE042CE1589200AD1F05 /* UnivPlanDisplayLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E8EE032CE1589200AD1F05 /* UnivPlanDisplayLibrary.swift */; };
+		D5E8EE062CE158E300AD1F05 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E8EE052CE158E300AD1F05 /* OnboardingView.swift */; };
+		D5E8EE082CE1606300AD1F05 /* GradeDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E8EE072CE1606300AD1F05 /* GradeDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,8 +54,12 @@
 		D5A69F362CD0697600071B03 /* UniversityPreparationUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityPreparationUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D5A69F472CD06E8500071B03 /* EnrolledSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrolledSubject.swift; sourceTree = "<group>"; };
 		D5A69F492CD06EE200071B03 /* GradeInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeInformation.swift; sourceTree = "<group>"; };
-		D5A69F4B2CD06F4B00071B03 /* ProgramInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramInformation.swift; sourceTree = "<group>"; };
 		D5A69F4D2CD424FE00071B03 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		D5E8EDFF2CE1573900AD1F05 /* UniversityProgram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityProgram.swift; sourceTree = "<group>"; };
+		D5E8EE012CE1581300AD1F05 /* UnivPlanData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnivPlanData.swift; sourceTree = "<group>"; };
+		D5E8EE032CE1589200AD1F05 /* UnivPlanDisplayLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnivPlanDisplayLibrary.swift; sourceTree = "<group>"; };
+		D5E8EE052CE158E300AD1F05 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		D5E8EE072CE1606300AD1F05 /* GradeDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,9 +112,13 @@
 			children = (
 				D5A69F172CD0697400071B03 /* UniversityPreparationApp.swift */,
 				D5A69F192CD0697400071B03 /* ContentView.swift */,
+				D5E8EE072CE1606300AD1F05 /* GradeDetails.swift */,
+				D5E8EE052CE158E300AD1F05 /* OnboardingView.swift */,
+				D5E8EE032CE1589200AD1F05 /* UnivPlanDisplayLibrary.swift */,
 				D5A69F492CD06EE200071B03 /* GradeInformation.swift */,
 				D5A69F4D2CD424FE00071B03 /* UserInfo.swift */,
-				D5A69F4B2CD06F4B00071B03 /* ProgramInformation.swift */,
+				D5E8EE012CE1581300AD1F05 /* UnivPlanData.swift */,
+				D5E8EDFF2CE1573900AD1F05 /* UniversityProgram.swift */,
 				D5A69F472CD06E8500071B03 /* EnrolledSubject.swift */,
 				D5A69F1D2CD0697500071B03 /* Assets.xcassets */,
 				D5A69F1F2CD0697500071B03 /* Preview Content */,
@@ -269,12 +281,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5E8EE082CE1606300AD1F05 /* GradeDetails.swift in Sources */,
 				D5A69F1A2CD0697400071B03 /* ContentView.swift in Sources */,
-				D5A69F4C2CD06F4B00071B03 /* ProgramInformation.swift in Sources */,
+				D5E8EE002CE1573900AD1F05 /* UniversityProgram.swift in Sources */,
 				D5A69F182CD0697400071B03 /* UniversityPreparationApp.swift in Sources */,
+				D5E8EE062CE158E300AD1F05 /* OnboardingView.swift in Sources */,
 				D5A69F482CD06E8500071B03 /* EnrolledSubject.swift in Sources */,
 				D5A69F4E2CD424FE00071B03 /* UserInfo.swift in Sources */,
 				D5A69F4A2CD06EE200071B03 /* GradeInformation.swift in Sources */,
+				D5E8EE022CE1581300AD1F05 /* UnivPlanData.swift in Sources */,
+				D5E8EE042CE1589200AD1F05 /* UnivPlanDisplayLibrary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

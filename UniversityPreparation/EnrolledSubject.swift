@@ -9,14 +9,30 @@ import Foundation
 import SwiftData
 
 @Model
-class EnrolledSubject {
-    var SubjectCode: String
-    var CurrentEnrolledSubjectGrade: Float?
-    var IncludeSubject: Bool
-    
-    init(SubjectCode: String, CurrentEnrolledSubjectGrade: Float? = nil, IncludeSubject: Bool) {
-        self.SubjectCode = SubjectCode
-        self.CurrentEnrolledSubjectGrade = CurrentEnrolledSubjectGrade
-        self.IncludeSubject = IncludeSubject
+final class EnrolledSubject {
+
+    var subjectIdentifier: String
+    var subjectCurrentGrade: Double = 0.0
+
+    //The isToBeIncluded var is a tricky one
+    //The flag indicates if this is a 4U/4M course
+    //4U/4M Courses are considered for Univ Prog grade calculation
+    //Irrespective of the 4U/4M status of subject, all the subjects should be used for the current grade % calculation
+
+    var isToBeIncluded: Bool
+    var parentGradeObject: GradeInformation?
+
+    init(
+        subjectIdentifier: String, subjectCurrentGrade: Double,
+        isToBeIncluded: Bool, parentGradeObject: GradeInformation
+    ) {
+        self.subjectIdentifier = subjectIdentifier
+        self.subjectCurrentGrade = subjectCurrentGrade
+        self.isToBeIncluded = isToBeIncluded
+        self.parentGradeObject = parentGradeObject
+
+    }
+    func isValid() -> Bool {
+        return (subjectCurrentGrade != 0.0 && !subjectIdentifier.isEmpty)
     }
 }
