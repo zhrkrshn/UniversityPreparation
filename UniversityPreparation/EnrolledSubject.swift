@@ -21,6 +21,18 @@ final class EnrolledSubject {
 
     var isToBeIncluded: Bool
     var parentGradeObject: GradeInformation?
+    @Attribute(.unique) var id = UUID()
+
+    init(
+        subjectIdentifier: String, subjectCurrentGrade: Double,
+        isToBeIncluded: Bool
+    ) {
+        self.subjectIdentifier = subjectIdentifier
+        self.subjectCurrentGrade = subjectCurrentGrade
+        self.isToBeIncluded = isToBeIncluded
+        self.parentGradeObject = nil
+
+    }
 
     init(
         subjectIdentifier: String, subjectCurrentGrade: Double,

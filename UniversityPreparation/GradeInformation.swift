@@ -15,7 +15,6 @@ final class GradeInformation {
 
     @Attribute(.unique) var gradeIdentifer: Int
     var currentGrade: Double = 0.0
-    var targetGrade: Double = 0.0
 
     @Relationship(deleteRule: .cascade)
     var enrolledSubjects: [EnrolledSubject] = []
@@ -26,7 +25,6 @@ final class GradeInformation {
 
     init(gradeIdentifer: Int, targetGrade: Double) {
         self.gradeIdentifer = gradeIdentifer
-        self.targetGrade = targetGrade
     }
 
     func calcCurrentGrade() {
@@ -45,29 +43,17 @@ final class GradeInformation {
             self.currentGrade = 0.0
         }
     }
-    func getActiveSubjectCount() -> Int {
-        let activeSubjectFilter: (EnrolledSubject) -> Bool = { $0.isValid() }
+    func getG12SubjectCount() -> Int {
+        let activeSubjectFilter: (EnrolledSubject) -> Bool = {
+            $0.isToBeIncluded
+        }
         return self.enrolledSubjects.filter(activeSubjectFilter).count
     }
     func getTotalSubjectCount() -> Int {
         return self.enrolledSubjects.count
     }
-    func getPerformanceGuidance() -> String {
-        //self.calcCurrentGrade()
-        if self.targetGrade == 0.0 {
-            return "No target grade set"
-        } else if self.currentGrade > self.targetGrade {
-            return "Exceeding target of " + String(self.targetGrade)
-        } else if self.currentGrade < self.targetGrade {
-            return "Behind target of " + String(self.targetGrade)
-        } else {
-            return "Slacker! Meeting target of " + String(self.targetGrade)
-        }
-    }
     func isValid() -> Bool {
-        if (self.currentGrade == 0.0) && (self.targetGrade == 0.0)
-            && (self.enrolledSubjects.isEmpty)
-        {
+        if (self.currentGrade == 0.0) && (self.enrolledSubjects.isEmpty) {
             return false
         } else {
             return true
