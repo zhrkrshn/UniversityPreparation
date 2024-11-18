@@ -44,22 +44,32 @@ final class UniversityProgram {
         }
     }
 
-    //TODO - ZOHAR WRITE THIS CODE - USE THIS STYING
-    //ORANGE FOR MISSING PREREQS - MINT FOR MEETING PREREQS
-    //CODE NEEDS TO CHECK preRequisiteSubjects AGAINST
-    //            grade11Info.enrolledSubjects[] and
-    //            grade12Info.enrolledSubjects[]
-    //Create new functions for calculating stuff
-    //and plug them back into this function (like color, 3 of 5 etc.)
 
     
     func getPreRequisiteSubjectsCoverage(
         grade11Info: GradeInformation, grade12Info: GradeInformation
     ) -> some View {
-        Text("3 of 5")
+        @Transient var localEnrolledSubjectList: [EnrolledSubject] = []
+        @Transient var MatchedSubjectsCount: Int = 0
+        @Transient var TotalSubjectCount: Int = preRequisiteSubjects.count
+        @Transient var textColor: Color = .orange
+        localEnrolledSubjectList.append(contentsOf: grade11Info.enrolledSubjects)
+        localEnrolledSubjectList.append(contentsOf: grade12Info.enrolledSubjects)
+        
+        
+        for enrolledSubject in localEnrolledSubjectList {
+            if preRequisiteSubjects.contains(enrolledSubject.subjectIdentifier) {
+                MatchedSubjectsCount += 1
+            }
+        }
+        
+        if MatchedSubjectsCount == TotalSubjectCount {
+            textColor = .mint
+        }
+        return Text("\(MatchedSubjectsCount) of \(TotalSubjectCount)")
             .font(.title)
             .fontWeight(.regular)
-            .foregroundColor(Color.orange)
+            .foregroundColor(textColor)
             .padding(.top, 0)
     }
 
@@ -74,10 +84,51 @@ final class UniversityProgram {
     func getPerformanceGuidance(
         grade11Info: GradeInformation, grade12Info: GradeInformation
     ) -> some View {
-        Text("00.00%")
+        @Transient var localEnrolledSubjectList: [EnrolledSubject] = []
+        @Transient var localPreRequisiteSubjectList: [String] = []
+        @Transient var includedPreRequisiteCount: Int = 0
+        @Transient var nonPreRequisiteCount: Int = 6
+        @Transient var gradeTotal: Double = 0
+        @Transient var GPA: Double = 0
+        @Transient var textColor: Color = .orange
+        
+        localEnrolledSubjectList.append(contentsOf: grade11Info.enrolledSubjects)
+        localEnrolledSubjectList.append(contentsOf: grade12Info.enrolledSubjects)
+        localEnrolledSubjectList = localEnrolledSubjectList.filter(\.self.isToBeIncluded)
+        
+        localPreRequisiteSubjectList = preRequisiteSubjects
+        
+        for enrolledSubject in localEnrolledSubjectList {
+            if localPreRequisiteSubjectList.contains(enrolledSubject.subjectIdentifier) {
+                includedPreRequisiteCount += 1
+                gradeTotal += enrolledSubject.subjectCurrentGrade
+                nonPreRequisiteCount -= 1
+                localPreRequisiteSubjectList.remove(at: localPreRequisiteSubjectList.firstIndex(of: enrolledSubject.subjectIdentifier) ?? -1)
+                localEnrolledSubjectList.remove(at: localEnrolledSubjectList.firstIndex(of: enrolledSubject) ?? -1)
+            }
+        }
+        
+        localEnrolledSubjectList.sort{$0.subjectCurrentGrade > $1.subjectCurrentGrade}
+        if nonPreRequisiteCount > localEnrolledSubjectList.count {
+            nonPreRequisiteCount = localEnrolledSubjectList.count
+            
+        }
+        
+        for i in 1...nonPreRequisiteCount {
+            let subject = localEnrolledSubjectList[i-1]
+            gradeTotal += subject.subjectCurrentGrade
+        }
+        
+        GPA = gradeTotal/Double(includedPreRequisiteCount + nonPreRequisiteCount)
+        
+        if GPA > minimumGrade {
+            textColor = .mint
+        }
+        
+        return Text(GPA.formatted(.percent))
             .font(.title)
             .fontWeight(.regular)
-            .foregroundColor(Color.mint)
+            .foregroundColor(textColor)
             .padding(.top, 0)
 
     }
