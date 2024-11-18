@@ -175,10 +175,10 @@ struct ContentView: View {
 //                                    p_continuePrevUniversity = false
 //                                    p_prevUniversityName = universityProgram.universityName
 //                                }
-                                NavigationLink(destination:ManageUniversityProgramSheet(isAddMode: false, univProgram: $universityProgram, g11Reference: $p_grade11Info, g12Reference: $p_grade11Info))
+                                NavigationLink(destination:ManageUniversityProgramSheet(isAddMode: false, univProgram: $universityProgram, g11Reference: $p_grade11Info, g12Reference: $p_grade12Info))
                                                {
                                     dispayUniversitySummaryCard(
-                                        isSameUnivAsPrevious: $p_continuePrevUniversity, univProgram: $universityProgram ,g11Reference: $p_grade11Info, g12Reference: $p_grade11Info)
+                                        isSameUnivAsPrevious: $p_continuePrevUniversity, univProgram: $universityProgram ,g11Reference: $p_grade11Info, g12Reference: $p_grade12Info)
                                 }
                             }
                         }

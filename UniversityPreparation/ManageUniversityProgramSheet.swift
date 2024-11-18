@@ -30,7 +30,6 @@ struct ManageUniversityProgramSheet: View {
         setupSheetBackLinkNav(backNavLinkName: " University / College Programs")
             .onAppear {
                 if !isAddMode {
-                    //TODO - ZOHAR
                     if univProgram.preRequisiteSubjects.count >= 1 {
                         preReqSubject_1 = univProgram.preRequisiteSubjects[0]
                     }
@@ -209,11 +208,51 @@ struct ManageUniversityProgramSheet: View {
                                 } else{
                                     if (isAddMode){
                                         print("ManageUniversityProgramSheet: Add Mode" )
+                                        var newPrerequisites: [String] = []
+                                        if !preReqSubject_1.isEmpty {
+                                            newPrerequisites.append(preReqSubject_1)
+                                        }
+                                        if !preReqSubject_2.isEmpty {
+                                            newPrerequisites.append(preReqSubject_2)
+                                        }
+                                        if !preReqSubject_3.isEmpty {
+                                            newPrerequisites.append(preReqSubject_3)
+                                        }
+                                        if !preReqSubject_4.isEmpty {
+                                            newPrerequisites.append(preReqSubject_4)
+                                        }
+                                        if !preReqSubject_5.isEmpty {
+                                            newPrerequisites.append(preReqSubject_5)
+                                        }
+                                        if !preReqSubject_6.isEmpty {
+                                            newPrerequisites.append(preReqSubject_6)
+                                        }
+                                        univProgram.preRequisiteSubjects = newPrerequisites
                                         modelContext.insert(univProgram)
                                         univProgram = UniversityProgram(universityName: "", programName: "", minimumGrade: 0.0, idealGrade: 0.0, preRequisiteSubjects: [])
                                     }
                                     else {
                                         print("ManageUniversityProgramSheet: Edit Mode" )
+                                        var newPrerequisites: [String] = []
+                                        if !preReqSubject_1.isEmpty {
+                                            newPrerequisites.append(preReqSubject_1)
+                                        }
+                                        if !preReqSubject_2.isEmpty {
+                                            newPrerequisites.append(preReqSubject_2)
+                                        }
+                                        if !preReqSubject_3.isEmpty {
+                                            newPrerequisites.append(preReqSubject_3)
+                                        }
+                                        if !preReqSubject_4.isEmpty {
+                                            newPrerequisites.append(preReqSubject_4)
+                                        }
+                                        if !preReqSubject_5.isEmpty {
+                                            newPrerequisites.append(preReqSubject_5)
+                                        }
+                                        if !preReqSubject_6.isEmpty {
+                                            newPrerequisites.append(preReqSubject_6)
+                                        }
+                                        univProgram.preRequisiteSubjects = newPrerequisites
                                         modelContext.insert(univProgram)
                                     }
                                     dismiss()
