@@ -191,17 +191,7 @@ struct ContentView: View {
                     }
                     .padding([.leading, .trailing], 16.0)
                     .onAppear {
-                        //Data Load Setup for University Programs
-                        if universityPrograms.isEmpty {
-                            for i in [1,2,3] {
-                                for j in [1,2,3] {
-                                    let newProgram = UniversityProgram(universityName: "University \(i)", programName: "Program \(i)-\(j)", minimumGrade: Double(i)*0.1, idealGrade: Double(j)*0.2, preRequisiteSubjects: [])
-                                    p_universityPrograms.append(newProgram)
-                                }
-                            }
-                        } else {
-                            p_universityPrograms.append(contentsOf: universityPrograms)
-                        }
+                        p_universityPrograms = universityPrograms
                     }
                 }.frame(width: g.size.width, height: g.size.height)
             }

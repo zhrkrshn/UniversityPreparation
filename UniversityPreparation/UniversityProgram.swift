@@ -52,6 +52,7 @@ final class UniversityProgram {
     //Create new functions for calculating stuff
     //and plug them back into this function (like color, 3 of 5 etc.)
 
+    
     func getPreRequisiteSubjectsCoverage(
         grade11Info: GradeInformation, grade12Info: GradeInformation
     ) -> some View {
@@ -80,88 +81,4 @@ final class UniversityProgram {
             .padding(.top, 0)
 
     }
-
-    //    func arePreRequisiteSubjectsCovered(grade11Info : GradeInformation, grade12Info : GradeInformation) -> Bool
-    //    {
-    //        @Transient var enrolledSubjectsAcrossGrades : [EnrolledSubject] = []
-    //        @Transient var localPreRequisiteSubjects : [String] = []
-    //
-    //        enrolledSubjectsAcrossGrades.append(contentsOf: grade11Info.enrolledSubjects!)
-    //        enrolledSubjectsAcrossGrades.append(contentsOf: grade12Info.enrolledSubjects!)
-    //
-    //        if (preRequisiteSubjects?.isEmpty == nil)
-    //        {
-    //            return true
-    //        }
-    //        else
-    //        {
-    //            localPreRequisiteSubjects.append(contentsOf: preRequisiteSubjects!)
-    //
-    //            for index in localPreRequisiteSubjects.indices
-    //            {
-    //                if (enrolledSubjectsAcrossGrades.first(where: { $0.subjectIdentifier == localPreRequisiteSubjects[index] }) != nil)
-    //                {
-    //                    //if you find the subject in the enrolledSubjectAcrossGrades, then remove it from your list
-    //                    localPreRequisiteSubjects.remove(at: index)
-    //                }
-    //            }
-    //            //At the end of the loop, you should have found everything and hence removed everything
-    //            if localPreRequisiteSubjects.isEmpty
-    //            {
-    //                return true
-    //            }
-    //            else
-    //            {
-    //                return false
-    //            }
-    //
-    //        }
-    //    }
-    //    func isMeetingGradeRequirements(grade11Info : GradeInformation, grade12Info : GradeInformation) -> Int {
-    //
-    //        @Transient var enrolledSubjectsAcrossGrades : [EnrolledSubject] = []
-    //        @Transient var subjectCount : Int = 6
-    //        @Transient var gradeSum: Double = 0.0
-    //        @Transient var overallGradeAverage: Double = 0.0
-    //
-    // //       enrolledSubjectsAcrossGrades.append(contentsOf: grade11Info.enrolledSubjects!)
-    // //       enrolledSubjectsAcrossGrades.append(contentsOf: grade12Info.enrolledSubjects!)
-    //
-    //        //Funky filterning by isToBeIncluded
-    //        enrolledSubjectsAcrossGrades.append(contentsOf: grade11Info.enrolledSubjects!.filter(\.self.isToBeIncluded))
-    //        enrolledSubjectsAcrossGrades.append(contentsOf: grade12Info.enrolledSubjects!.filter(\.self.isToBeIncluded))
-    //
-    //
-    //        enrolledSubjectsAcrossGrades.sort { $0.subjectCurrentGrade > $1.subjectCurrentGrade }
-    //
-    //        if enrolledSubjectsAcrossGrades.count < 6 {
-    //            subjectCount = enrolledSubjectsAcrossGrades.count
-    //        }
-    //
-    //        for subject in enrolledSubjectsAcrossGrades[0..<subjectCount] {
-    //            //
-    //            if subject.isToBeIncluded {
-    //                gradeSum += subject.subjectCurrentGrade
-    //            }
-    //        }
-    //        if gradeSum != 0.0 && subjectCount != 0
-    //        {
-    //            overallGradeAverage = gradeSum / Double(subjectCount)
-    //        } else
-    //        {
-    //            overallGradeAverage = 0.0
-    //        }
-    //        if overallGradeAverage > minimumGrade && overallGradeAverage > idealGrade
-    //        {
-    //            return CURRENT_GRADE_ABOVE_RANGE
-    //        }
-    //        if overallGradeAverage < minimumGrade && overallGradeAverage < idealGrade
-    //        {
-    //            return CURRENT_GRADE_BELOW_RANGE
-    //        }
-    //        if overallGradeAverage >= minimumGrade && overallGradeAverage <= idealGrade
-    //        {
-    //            return CURRENT_GRADE_IN_RANGE
-    //        }
-    //    }
 }
