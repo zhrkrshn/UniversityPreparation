@@ -138,7 +138,7 @@ struct ContentView: View {
                                 destination: ManageGradeSheet(
                                     activeGrade: $p_grade11Info)
                             ) {
-                                dispayGradeSummaryCard(
+                                displayGradeSummaryCard(
                                     gradeInformation: $p_grade11Info)
                             }
                             CustomDivider()
@@ -146,7 +146,7 @@ struct ContentView: View {
                                 destination: ManageGradeSheet(
                                     activeGrade: $p_grade12Info)
                             ) {
-                                dispayGradeSummaryCard(
+                                displayGradeSummaryCard(
                                     gradeInformation: $p_grade12Info)
                             }
                         }
@@ -204,7 +204,7 @@ struct ContentView: View {
                                         g11Reference: $p_grade11Info,
                                         g12Reference: $p_grade12Info)
                                 ) {
-                                    dispayUniversitySummaryCard(
+                                    displayUniversitySummaryCard(
                                         isSameUnivAsPrevious: sameUnivAsPrevious(univArray: p_universityPrograms, currUP: universityProgram), univProgram: $universityProgram ,g11Reference: $p_grade11Info, g12Reference: $p_grade12Info)
                                 }
                             }

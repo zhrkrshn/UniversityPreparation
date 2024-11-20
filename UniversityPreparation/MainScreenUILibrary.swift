@@ -8,7 +8,7 @@
 import SwiftUI
 
 //Main Screen Grade Summary Card
-struct dispayGradeSummaryCard: View {
+struct displayGradeSummaryCard: View {
     
     @Binding var gradeInformation: GradeInformation
     
@@ -55,7 +55,7 @@ struct dispayGradeSummaryCard: View {
 }
 //Core Screen Grade Summary Card
 //Same as Main but without Row Decorations (Green Bar / Chevron)
-struct coreDispayGradeSummaryCard: View {
+struct coreDisplayGradeSummaryCard: View {
     
     @Binding var gradeInformation: GradeInformation
     
@@ -96,7 +96,7 @@ struct coreDispayGradeSummaryCard: View {
 }
 
 //Main Screen University Summary Card
-struct dispayUniversitySummaryCard: View {
+struct displayUniversitySummaryCard: View {
     
     var isSameUnivAsPrevious: Bool
     @Binding var univProgram: UniversityProgram

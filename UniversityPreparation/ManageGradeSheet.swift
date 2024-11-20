@@ -57,7 +57,7 @@ struct ManageGradeSheet: View {
                             Spacer()
                         }
                         CustomDivider()
-                        coreDispayGradeSummaryCard(
+                        coreDisplayGradeSummaryCard(
                             gradeInformation: $activeGrade)
                         CustomDivider()
                         HStack {
