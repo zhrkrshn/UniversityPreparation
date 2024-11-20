@@ -9,82 +9,82 @@ import SwiftUI
 
 //Main Screen Grade Summary Card
 struct dispayGradeSummaryCard: View {
-
+    
     @Binding var gradeInformation: GradeInformation
-
+    
     var body: some View {
         Rectangle().frame(width: 2)
-            .foregroundColor(.mint)
+            .foregroundColor(.accent)
         HStack(alignment: .bottom) {
             VStack(alignment: .leading) {
                 Text("Grade " + "\(gradeInformation.gradeIdentifer)")
                     .textCase(.uppercase)
                     .font(.headline).fontWeight(.regular)
-                    .foregroundColor(Color.black)
-                Text(gradeInformation.currentGrade.formatted(.percent))
-                    .font(.largeTitle)
-                    .fontWeight(.regular)
-                    .foregroundColor(Color.mint)
+                    .foregroundColor(Color.contrastFG)
+                Text(gradeInformation.currentGrade.formatted(.percent.precision(.fractionLength(2))))
+                    .font(.title)
+                    .fontWeight(.light)
+                    .foregroundColor(Color.accent)
                     .padding(.top, 0)
                 Text("CALCULATED GPA")
                     .textCase(.uppercase)
-                    .font(.subheadline)
+                    .font(.caption)
                     .fontWeight(.regular)
-                    .foregroundColor(Color.gray)
+                    .foregroundColor(Color.milderFG)
             }
             Spacer()
             VStack(alignment: .leading) {
                 Text(gradeInformation.getG12SubjectCount().formatted(.number))
-                    .font(.largeTitle)
-                    .fontWeight(.regular)
-                    .foregroundColor(Color.mint)
+                    .font(.title)
+                    .fontWeight(.light)
+                    .foregroundColor(Color.accent)
                     .padding(.top, 0)
                 Text("Grade 12 Subjects")
                     .textCase(.uppercase)
-                    .font(.subheadline)
+                    .font(.caption)
                     .fontWeight(.regular)
-                    .foregroundColor(Color.gray)
+                    .foregroundColor(Color.milderFG)
             }
             Spacer()
         }.padding(.leading, 2)
         Image(systemName: "chevron.forward")
-            .foregroundStyle(Color.gray)
+            .foregroundStyle(Color.milderFG)
             .controlSize(.extraLarge)
-
+        
     }
 }
 //Core Screen Grade Summary Card
 //Same as Main but without Row Decorations (Green Bar / Chevron)
 struct coreDispayGradeSummaryCard: View {
-
+    
     @Binding var gradeInformation: GradeInformation
-
+    
     var body: some View {
         HStack(alignment: .bottom) {
             VStack(alignment: .leading) {
-                Text(gradeInformation.currentGrade.formatted(.percent))
-                    .font(.largeTitle)
-                    .fontWeight(.regular)
-                    .foregroundColor(Color.mint)
+                Text(gradeInformation.currentGrade.formatted(.percent.precision(.fractionLength(2))))
+                    .font(.title)
+                    .fontWeight(.light)
+                    .foregroundColor(Color.accent)
                     .padding(.top, 0)
                 Text("CALCULATED GPA")
                     .textCase(.uppercase)
-                    .font(.subheadline)
+                    .font(.caption)
                     .fontWeight(.regular)
-                    .foregroundColor(Color.gray)
+                    .foregroundColor(Color.milderFG)
             }
             Spacer()
             VStack(alignment: .leading) {
                 Text(gradeInformation.getG12SubjectCount().formatted(.number))
-                    .font(.largeTitle)
-                    .fontWeight(.regular)
-                    .foregroundColor(Color.mint)
+                    .font(.title)
+                    .fontWeight(.light)
+                    .foregroundColor(Color.accent)
                     .padding(.top, 0)
                 Text("Grade 12 Subjects")
                     .textCase(.uppercase)
-                    .font(.subheadline)
+                    .font(.caption)
                     .fontWeight(.regular)
-                    .foregroundColor(Color.gray)
+                    .foregroundColor(Color.milderFG)
             }
             Spacer()
         }.padding(.leading, 2)
@@ -97,80 +97,71 @@ struct coreDispayGradeSummaryCard: View {
 
 //Main Screen University Summary Card
 struct dispayUniversitySummaryCard: View {
-
-    @Binding var isSameUnivAsPrevious: Bool
+    
+    var isSameUnivAsPrevious: Bool
     @Binding var univProgram: UniversityProgram
     @Binding var g11Reference: GradeInformation
     @Binding var g12Reference: GradeInformation
-
+    
     var body: some View {
+        VStack(alignment: .leading){
         HStack(alignment: .center) {
             VStack(alignment: .leading) {
-                if !isSameUnivAsPrevious {
+                if !isSameUnivAsPrevious{
                     Text(univProgram.universityName)
                         .textCase(.uppercase)
                         .font(.headline).fontWeight(.regular)
-                        .foregroundColor(Color.black)
+                        .foregroundColor(Color.contrastFG)
                 }
                 HStack(alignment: .top) {
                     Rectangle().frame(width: 2)
-                        .foregroundColor(.mint)
+                        .foregroundColor(.accent)
                     VStack(alignment: .leading) {
                         Text(univProgram.programName)
-                            .font(.headline).fontWeight(.regular)
-                            .foregroundColor(Color.black).opacity(0.8)
+                        .font(.headline).fontWeight(.regular)
+                        .foregroundColor(Color.contrastFG).opacity(0.8)
                         HStack {
-                            VStack(alignment: .leading) {
-                                univProgram.getPreRequisiteSubjectsCoverage(
-                                    grade11Info: g11Reference,
-                                    grade12Info: g12Reference)
+                            VStack(alignment: .leading){
+                                univProgram.getPreRequisiteSubjectsCoverage(grade11Info: g11Reference, grade12Info: g12Reference)
                                 Text("Prerequisites")
                                     .textCase(.uppercase)
-                                    .font(.subheadline)
+                                    .font(.caption)
                                     .fontWeight(.regular)
-                                    .foregroundColor(Color.gray)
-                            }
-                            Spacer()
-                            VStack(alignment: .leading) {
-                                univProgram.getPerformanceGuidance(
-                                    grade11Info: g11Reference,
-                                    grade12Info: g12Reference)
+                                    .foregroundColor(Color.milderFG)
+                            }.frame(width: 110)
+                            VStack(alignment: .leading){
+                                univProgram.getPerformanceGuidance(grade11Info: g11Reference, grade12Info: g12Reference)
                                 Text("Top 6 GPA")
                                     .textCase(.uppercase)
-                                    .font(.subheadline)
+                                    .font(.caption)
                                     .fontWeight(.regular)
-                                    .foregroundColor(Color.gray)
-                            }
+                                    .foregroundColor(Color.milderFG)
+                            }.frame(width: 110)
                             Spacer()
                         }.padding(.leading, 2)
                         HStack {
-                            VStack(alignment: .leading) {
-                                Text(
-                                    univProgram.minimumGrade.formatted(.percent)
-                                )
-                                .font(.title)
-                                .fontWeight(.light)
-                                .foregroundColor(Color.black).opacity(0.9)
-                                .padding(.top, 0)
+                            VStack(alignment: .leading){
+                                Text(univProgram.minimumGrade.formatted(.percent.precision(.fractionLength(0))))
+                                    .font(.title2)
+                                    .fontWeight(.light)
+                                    .foregroundColor(Color.contrastFG).opacity(0.9)
                                 Text("Minimum GPA")
                                     .textCase(.uppercase)
-                                    .font(.subheadline)
+                                    .font(.caption)
                                     .fontWeight(.regular)
-                                    .foregroundColor(Color.gray)
-                            }
-                            Spacer()
+                                    .foregroundColor(Color.milderFG)
+                            }.frame(width: 110)
                             VStack(alignment: .leading) {
-                                Text(univProgram.idealGrade.formatted(.percent))
-                                    .font(.title)
+                                Text(univProgram.idealGrade.formatted(.percent.precision(.fractionLength(0))))
+                                    .font(.title2)
                                     .fontWeight(.light)
-                                    .foregroundColor(Color.black).opacity(0.9)
-                                    .padding(.top, 0)
+                                    .foregroundColor(Color.contrastFG).opacity(0.9)
                                 Text("Ideal GPA")
                                     .textCase(.uppercase)
-                                    .font(.subheadline)
+                                    .font(.caption)
                                     .fontWeight(.regular)
-                                    .foregroundColor(Color.gray)
-                            }
+                                    .foregroundColor(Color.milderFG)
+                            }.frame(width: 110)
                             Spacer()
                         }.padding(.leading, 2)
                     }.padding(.leading, 5)
@@ -179,9 +170,10 @@ struct dispayUniversitySummaryCard: View {
             }
             Spacer()
             Image(systemName: "chevron.forward")
-                .foregroundStyle(Color.gray)
+                .foregroundStyle(Color.milderFG)
                 .controlSize(.extraLarge)
         }.padding(.leading, 2)
-        Divider()
+        CustomDivider()
+        }
     }
 }

@@ -33,7 +33,7 @@ struct ManageSubjectSheet: View {
                         .padding(.top, 10.0)
                     Spacer()
                 }.ignoresSafeArea()
-                Divider()
+                CustomDivider()
                 //Form Start
                 HStack(alignment: .top) {
                     VStack(alignment: .leading) {
@@ -41,7 +41,7 @@ struct ManageSubjectSheet: View {
                             .textCase(.uppercase)
                             .font(.caption)
                             .fontWeight(.regular)
-                            .foregroundColor(Color.black).opacity(0.8)
+                            .foregroundColor(Color.contrastFG).opacity(0.8)
                             .padding(.top, 6.0)
                             .padding(.leading, 3.0)
                             .padding(.bottom, -2.0)
@@ -49,29 +49,22 @@ struct ManageSubjectSheet: View {
                             "Subject Identification String",
                             text: $currentSubject.subjectIdentifier
                         )
-                        .font(.headline)
-                        .fontWeight(.light)
-                        .padding([.leading, .bottom], 2.0)
-                        .textFieldStyle(.roundedBorder)
-                        .autocorrectionDisabled(true)
+                        .textFieldStyle(StandardTextFieldStyle())
                         Text("Current Score")
                             .textCase(.uppercase)
                             .font(.caption)
                             .fontWeight(.regular)
-                            .foregroundColor(Color.black).opacity(0.8)
+                            .foregroundColor(Color.contrastFG).opacity(0.8)
                             .padding(.top, 6.0)
                             .padding(.leading, 3.0)
                             .padding(.bottom, -2.0)
                         TextField(
                             "Set your current score",
                             value: $currentSubject.subjectCurrentGrade,
-                            format: .percent
+                            format: .percent.precision(.fractionLength(2))
                         )
-                        .font(.headline)
-                        .fontWeight(.light)
-                        .padding([.leading, .bottom], 2.0)
-                        .textFieldStyle(.roundedBorder)
-                        .autocorrectionDisabled(true)
+                        .textFieldStyle(StandardTextFieldStyle())
+                        .keyboardType(.decimalPad)
                         HStack(alignment: .top) {
                             VStack(alignment: .leading) {
                                 Toggle(isOn: $currentSubject.isToBeIncluded) {
@@ -79,7 +72,7 @@ struct ManageSubjectSheet: View {
                                         .textCase(.uppercase)
                                         .font(.caption)
                                         .fontWeight(.regular)
-                                        .foregroundColor(Color.black).opacity(
+                                        .foregroundColor(Color.contrastFG).opacity(
                                             0.8
                                         )
                                         .padding(.leading, 3.0)
@@ -88,12 +81,12 @@ struct ManageSubjectSheet: View {
                                     )
                                     .font(.footnote)
                                     .fontWeight(.light)
-                                    .foregroundColor(Color.black).opacity(0.6)
+                                    .foregroundColor(Color.contrastFG).opacity(0.6)
                                     .padding(.top, -5.0)
                                     .padding(.leading, 3.0)
                                     .padding(.bottom, -2.0)
                                 }.toggleStyle(.switch).padding(.trailing, 10)
-                                    .tint(.mint)
+                                    .tint(.accent)
                             }
                         }
 
@@ -130,10 +123,11 @@ struct ManageSubjectSheet: View {
                             } label: {
                                 Text("Save Subject")
                                     .frame(maxWidth: .infinity)
+                                    .foregroundColor(.matchingBG)
                             }
                             .padding(.top, 20)
                             .buttonStyle(.borderedProminent)
-                            .tint(.mint)
+                            .tint(.accent)
 
                             //DELETE
                             Button {
@@ -159,10 +153,11 @@ struct ManageSubjectSheet: View {
                             } label: {
                                 Text("Delete Subject")
                                     .frame(maxWidth: .infinity)
+                                    .foregroundColor(.matchingBG)
                             }
                             .padding(.top, 20)
                             .buttonStyle(.borderedProminent)
-                            .tint(.orange)
+                            .tint(.error)
 
                         }
                     }
@@ -171,14 +166,14 @@ struct ManageSubjectSheet: View {
                     Spacer()
                 }
                 //Form End
-                Divider()
+                CustomDivider()
             }
             .padding(.top, 1.0)
             .padding(.bottom, 10.0)
             .padding(.horizontal, 15)
-            .background(Color.white)
+            .background(Color.matchingBG)
             .cornerRadius(10)
-            .shadow(color: .gray, radius: 3, x: 0, y: 4)
+            .shadow(color: .milderFG, radius: 3, x: 0, y: 4)
         }
         .padding([.leading, .trailing], 16.0)
 

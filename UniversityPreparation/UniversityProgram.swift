@@ -52,7 +52,7 @@ final class UniversityProgram {
         @Transient var localEnrolledSubjectList: [EnrolledSubject] = []
         @Transient var MatchedSubjectsCount: Int = 0
         @Transient var TotalSubjectCount: Int = preRequisiteSubjects.count
-        @Transient var textColor: Color = .orange
+        @Transient var textColor: Color = .error
         localEnrolledSubjectList.append(contentsOf: grade11Info.enrolledSubjects)
         localEnrolledSubjectList.append(contentsOf: grade12Info.enrolledSubjects)
         
@@ -64,7 +64,7 @@ final class UniversityProgram {
         }
         
         if MatchedSubjectsCount == TotalSubjectCount {
-            textColor = .mint
+            textColor = .accent
         }
         return Text("\(MatchedSubjectsCount) of \(TotalSubjectCount)")
             .font(.title)
@@ -90,7 +90,7 @@ final class UniversityProgram {
         @Transient var nonPreRequisiteCount: Int = 6
         @Transient var gradeTotal: Double = 0
         @Transient var GPA: Double = 0
-        @Transient var textColor: Color = .orange
+        @Transient var textColor: Color = .error
         
         localEnrolledSubjectList.append(contentsOf: grade11Info.enrolledSubjects)
         localEnrolledSubjectList.append(contentsOf: grade12Info.enrolledSubjects)
@@ -114,7 +114,7 @@ final class UniversityProgram {
             
         }
         
-        for i in 1...nonPreRequisiteCount {
+        for i in 1...nonPreRequisiteCount { //check for conditions 0 prerequisites match/last enrolled subject delete
             let subject = localEnrolledSubjectList[i-1]
             gradeTotal += subject.subjectCurrentGrade
         }
@@ -122,10 +122,10 @@ final class UniversityProgram {
         GPA = gradeTotal/Double(includedPreRequisiteCount + nonPreRequisiteCount)
         
         if GPA > minimumGrade {
-            textColor = .mint
+            textColor = .accent
         }
         
-        return Text(GPA.formatted(.percent))
+        return Text(GPA.formatted(.percent.precision(.fractionLength(2))))
             .font(.title)
             .fontWeight(.regular)
             .foregroundColor(textColor)

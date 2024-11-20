@@ -62,7 +62,7 @@ struct ManageUniversityProgramSheet: View {
                         .font(.title3).fontWeight(.light).padding(.bottom, -3.0).padding(.top, 10.0)
                     Spacer()
                 }.ignoresSafeArea()
-                Divider()
+                CustomDivider()
                 //Form Start
                 HStack(alignment: .top) {
                     VStack(alignment: .leading) {
@@ -70,32 +70,24 @@ struct ManageUniversityProgramSheet: View {
                         .textCase(.uppercase)
                         .font(.callout)
                         .fontWeight(.regular)
-                        .foregroundColor(Color.black).opacity(0.8)
+                        .foregroundColor(Color.contrastFG).opacity(0.8)
                         .padding(.top, 6.0)
                         .padding(.leading, 3.0)
                         .padding(.bottom, -2.0)
                         TextField("University Name",text: $univProgram.universityName)
-                        .font(.headline)
-                        .fontWeight(.light)
-                        .padding([.leading, .bottom], 2.0)
-                        .textFieldStyle(.roundedBorder)
-                        .autocorrectionDisabled(true)
+                            .textFieldStyle(StandardTextFieldStyle())
                         Text("Program")
                         .textCase(.uppercase)
                         .font(.callout)
                         .fontWeight(.regular)
-                        .foregroundColor(Color.black).opacity(0.8)
+                        .foregroundColor(Color.contrastFG).opacity(0.8)
                         .padding(.top, 6.0)
                         .padding(.leading, 3.0)
                         .padding(.bottom, -2.0)
                         TextField("Program Name",text: $univProgram.programName)
-                        .font(.headline)
-                        .fontWeight(.light)
-                        .padding([.leading, .bottom], 2.0)
-                        .textFieldStyle(.roundedBorder)
-                        .autocorrectionDisabled(true)
+                            .textFieldStyle(StandardTextFieldStyle())
                         Text("Admission Range")
-                        .textCase(.uppercase).font(.callout).fontWeight(.regular).foregroundColor(Color.black).opacity(0.8)
+                        .textCase(.uppercase).font(.callout).fontWeight(.regular).foregroundColor(Color.contrastFG).opacity(0.8)
                         .padding(.top, 6.0).padding(.leading, 3.0).padding(.bottom, -2.0)
                         HStack {
                             VStack(alignment: .leading) {
@@ -103,20 +95,17 @@ struct ManageUniversityProgramSheet: View {
                                     .textCase(.uppercase)
                                     .font(.caption)
                                     .fontWeight(.regular)
-                                    .foregroundColor(Color.black).opacity(0.8)
+                                    .foregroundColor(Color.contrastFG).opacity(0.8)
                                     .padding(.top, 6.0)
                                     .padding(.leading, 3.0)
                                     .padding(.bottom, -2.0)
                                     TextField(
                                         "Minimum GPA",
                                         value: $univProgram.minimumGrade,
-                                        format: .percent
+                                        format: .percent.precision(.fractionLength(0))
                                     )
-                                    .font(.headline)
-                                    .fontWeight(.light)
-                                    .padding([.leading, .bottom], 2.0)
-                                    .textFieldStyle(.roundedBorder)
-                                    .autocorrectionDisabled(true)
+                                    .textFieldStyle(StandardTextFieldStyle())
+                                    .keyboardType(.decimalPad)
                             }
                             Spacer()
                             VStack(alignment: .leading) {
@@ -124,80 +113,71 @@ struct ManageUniversityProgramSheet: View {
                                     .textCase(.uppercase)
                                     .font(.caption)
                                     .fontWeight(.regular)
-                                    .foregroundColor(Color.black).opacity(0.8)
+                                    .foregroundColor(Color.contrastFG).opacity(0.8)
                                     .padding(.top, 6.0)
                                     .padding(.leading, 3.0)
                                     .padding(.bottom, -2.0)
                                     TextField(
                                         "Ideal GPA",
                                         value: $univProgram.idealGrade,
-                                        format: .percent
+                                        format: .percent.precision(.fractionLength(0))
                                     )
-                                    .font(.headline)
-                                    .fontWeight(.light)
-                                    .padding([.leading, .bottom], 2.0)
-                                    .textFieldStyle(.roundedBorder)
-                                    .autocorrectionDisabled(true)
+                                    .textFieldStyle(StandardTextFieldStyle())
+                                    .keyboardType(.decimalPad)
                             }
                         }
                         Text("Pre-Requisite Subjects")
-                            .textCase(.uppercase).font(.callout).fontWeight(.regular).foregroundColor(Color.black).opacity(0.8)
+                            .textCase(.uppercase).font(.callout).fontWeight(.regular).foregroundColor(Color.contrastFG).opacity(0.8)
                             .padding(.top, 6.0).padding(.leading, 3.0).padding(.bottom, -2.0)
                         HStack {
                             VStack(alignment: .leading) {
                                 Text("Pre-Requisite 1")
-                                    .textCase(.uppercase).font(.caption).fontWeight(.regular).foregroundColor(Color.black).opacity(0.8)
+                                    .textCase(.uppercase).font(.caption).fontWeight(.regular).foregroundColor(Color.contrastFG).opacity(0.8)
                                     .padding(.top, 6.0).padding(.leading, 3.0).padding(.bottom, -2.0)
                                 TextField("Subject Identifier", text: $preReqSubject_1)
-                                    .font(.headline).fontWeight(.light).padding([.leading, .bottom], 2.0)
-                                    .textFieldStyle(.roundedBorder).autocorrectionDisabled(true)
+                                    .textFieldStyle(StandardTextFieldStyle())
                             }
                             Spacer()
                             VStack(alignment: .leading) {
                                 Text("Pre-Requisite 2")
-                                    .textCase(.uppercase).font(.caption).fontWeight(.regular).foregroundColor(Color.black).opacity(0.8)
+                                    .textCase(.uppercase).font(.caption).fontWeight(.regular).foregroundColor(Color.contrastFG).opacity(0.8)
                                 .padding(.top, 6.0).padding(.leading, 3.0).padding(.bottom, -2.0)
                                 TextField("Subject Identifier", text: $preReqSubject_2)
-                                .font(.headline).fontWeight(.light).padding([.leading, .bottom], 2.0)
-                                .textFieldStyle(.roundedBorder).autocorrectionDisabled(true)
+                                    .textFieldStyle(StandardTextFieldStyle())
                             }
                         }
                         HStack {
                             VStack(alignment: .leading) {
                                 Text("Pre-Requisite 3")
-                                    .textCase(.uppercase).font(.caption).fontWeight(.regular).foregroundColor(Color.black).opacity(0.8)
+                                    .textCase(.uppercase).font(.caption).fontWeight(.regular).foregroundColor(Color.contrastFG).opacity(0.8)
                                 .padding(.top, 6.0).padding(.leading, 3.0).padding(.bottom, -2.0)
                                 TextField("Subject Identifier", text: $preReqSubject_3)
-                                .font(.headline).fontWeight(.light).padding([.leading, .bottom], 2.0)
-                                .textFieldStyle(.roundedBorder).autocorrectionDisabled(true)
+                                    .textFieldStyle(StandardTextFieldStyle())
                             }
                             Spacer()
                             VStack(alignment: .leading) {
                                 Text("Pre-Requisite 4")
-                                    .textCase(.uppercase).font(.caption).fontWeight(.regular).foregroundColor(Color.black).opacity(0.8)
+                                    .textCase(.uppercase).font(.caption).fontWeight(.regular).foregroundColor(Color.contrastFG).opacity(0.8)
                                 .padding(.top, 6.0).padding(.leading, 3.0).padding(.bottom, -2.0)
                                 TextField("Subject Identifier", text: $preReqSubject_4)
-                                .font(.headline).fontWeight(.light).padding([.leading, .bottom], 2.0)
-                                .textFieldStyle(.roundedBorder).autocorrectionDisabled(true)
+                                    .textFieldStyle(StandardTextFieldStyle())
                             }
                         }
                         HStack {
                             VStack(alignment: .leading) {
                                 Text("Pre-Requisite 5")
-                                    .textCase(.uppercase).font(.caption).fontWeight(.regular).foregroundColor(Color.black).opacity(0.8)
+                                    .textCase(.uppercase).font(.caption).fontWeight(.regular).foregroundColor(Color.contrastFG).opacity(0.8)
                                 .padding(.top, 6.0).padding(.leading, 3.0).padding(.bottom, -2.0)
                                 TextField("Subject Identifier", text: $preReqSubject_5)
-                                .font(.headline).fontWeight(.light).padding([.leading, .bottom], 2.0)
-                                .textFieldStyle(.roundedBorder).autocorrectionDisabled(true)
+                                    .textFieldStyle(StandardTextFieldStyle())
                             }
                             Spacer()
                             VStack(alignment: .leading) {
                                 Text("Pre-Requisite 6")
-                                    .textCase(.uppercase).font(.caption).fontWeight(.regular).foregroundColor(Color.black).opacity(0.8)
+                                    .textCase(.uppercase).font(.caption).fontWeight(.regular).foregroundColor(Color.contrastFG).opacity(0.8)
                                 .padding(.top, 6.0).padding(.leading, 3.0).padding(.bottom, -2.0)
                                 TextField("Subject Identifier", text: $preReqSubject_6)
-                                .font(.headline).fontWeight(.light).padding([.leading, .bottom], 2.0)
-                                .textFieldStyle(.roundedBorder).autocorrectionDisabled(true)
+                                    .textFieldStyle(StandardTextFieldStyle())
                             }
                         }
                         HStack(alignment: .top) {
@@ -261,10 +241,11 @@ struct ManageUniversityProgramSheet: View {
                             label : {
                                 Text("Save Program")
                                     .frame(maxWidth: .infinity)
+                                    .foregroundColor(.matchingBG)
                             }
                             .padding(.top,20)
                             .buttonStyle(.borderedProminent)
-                            .tint(.mint)
+                            .tint(.accent)
 
                             //DELETE
                             if (!isAddMode)
@@ -277,10 +258,11 @@ struct ManageUniversityProgramSheet: View {
                                 label : {
                                     Text("Delete Program")
                                         .frame(maxWidth: .infinity)
+                                        .foregroundColor(.matchingBG)
                                 }
                                 .padding(.top,20)
                                 .buttonStyle(.borderedProminent)
-                                .tint(.orange)
+                                .tint(.error)
                             }
                         }
                 }
@@ -289,14 +271,14 @@ struct ManageUniversityProgramSheet: View {
                     Spacer()
                 }
                 //Form End
-               Divider()
+               CustomDivider()
             }
             .padding(.top, 1.0)
             .padding(.bottom, 10.0)
             .padding(.horizontal, 15)
-            .background(Color.white)
+            .background(Color.matchingBG)
             .cornerRadius(10)
-            .shadow(color: .gray, radius: 3, x: 0, y: 4)
+            .shadow(color: .milderFG, radius: 3, x: 0, y: 4)
         }
         .padding([.leading, .trailing], 16.0)
         

@@ -28,7 +28,7 @@ struct ManageNameSheet: View {
                         .padding(.top, 10.0)
                     Spacer()
                 }.ignoresSafeArea()
-                Divider()
+                CustomDivider()
                 //Form Start
                 HStack(alignment: .top) {
                     VStack(alignment: .leading) {
@@ -36,17 +36,13 @@ struct ManageNameSheet: View {
                             .textCase(.uppercase)
                             .font(.caption)
                             .fontWeight(.regular)
-                            .foregroundColor(Color.black).opacity(0.8)
+                            .foregroundColor(Color.contrastFG).opacity(0.8)
                             .padding(.top, 6.0)
                             .padding(.leading, 3.0)
                             .padding(.bottom, -2.0)
                         VStack(alignment: .leading) {
                             TextField("What do we call you ?", text: $userName)
-                                .font(.headline)
-                                .fontWeight(.light)
-                                .padding([.leading, .bottom], 2.0)
-                                .textFieldStyle(.roundedBorder)
-                                .autocorrectionDisabled(true)
+                                .textFieldStyle(StandardTextFieldStyle())
                                 .onSubmit {
                                     print("OnSubmit >>" + userName)
                                 }
@@ -63,10 +59,11 @@ struct ManageNameSheet: View {
                             } label: {
                                 Text("Save")
                                     .frame(maxWidth: .infinity)
+                                    .foregroundColor(.matchingBG)
                             }
                             .padding(.top, 20)
                             .buttonStyle(.borderedProminent)
-                            .tint(.mint)
+                            .tint(.accent)
                         }
                     }
                     .padding(.horizontal, 5.0)
@@ -76,14 +73,14 @@ struct ManageNameSheet: View {
 
                 //Form End
 
-                Divider()
+                CustomDivider()
             }
             .padding(.top, 1.0)
             .padding(.bottom, 10.0)
             .padding(.horizontal, 15)
-            .background(Color.white)
+            .background(Color.matchingBG)
             .cornerRadius(10)
-            .shadow(color: .gray, radius: 3, x: 0, y: 4)
+            .shadow(color: .milderFG, radius: 3, x: 0, y: 4)
         }
         .padding([.leading, .trailing], 16.0)
 
