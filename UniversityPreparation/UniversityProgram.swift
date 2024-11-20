@@ -113,14 +113,17 @@ final class UniversityProgram {
             nonPreRequisiteCount = localEnrolledSubjectList.count
             
         }
-        
-        for i in 1...nonPreRequisiteCount { //check for conditions 0 prerequisites match/last enrolled subject delete
-            let subject = localEnrolledSubjectList[i-1]
-            gradeTotal += subject.subjectCurrentGrade
+        if nonPreRequisiteCount > 0 {
+            for i in 1...nonPreRequisiteCount {
+                let subject = localEnrolledSubjectList[i-1]
+                gradeTotal += subject.subjectCurrentGrade
+            }
         }
-        
-        GPA = gradeTotal/Double(includedPreRequisiteCount + nonPreRequisiteCount)
-        
+        if (nonPreRequisiteCount+includedPreRequisiteCount) > 0 {
+            GPA = gradeTotal/Double(includedPreRequisiteCount + nonPreRequisiteCount)
+        } else {
+          GPA = 0
+        }
         if GPA > minimumGrade {
             textColor = .accent
         }
