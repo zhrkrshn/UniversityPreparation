@@ -72,7 +72,8 @@ struct ManageSubjectSheet: View {
                                         .textCase(.uppercase)
                                         .font(.caption)
                                         .fontWeight(.regular)
-                                        .foregroundColor(Color.contrastFG).opacity(
+                                        .foregroundColor(Color.contrastFG)
+                                        .opacity(
                                             0.8
                                         )
                                         .padding(.leading, 3.0)
@@ -81,7 +82,9 @@ struct ManageSubjectSheet: View {
                                     )
                                     .font(.footnote)
                                     .fontWeight(.light)
-                                    .foregroundColor(Color.contrastFG).opacity(0.6)
+                                    .foregroundColor(Color.contrastFG).opacity(
+                                        0.6
+                                    )
                                     .padding(.top, -5.0)
                                     .padding(.leading, 3.0)
                                     .padding(.bottom, -2.0)
@@ -95,15 +98,17 @@ struct ManageSubjectSheet: View {
                             Button {
                                 print("ManageSubjectSheet: Save Button Action")
                                 if currentSubject.subjectIdentifier.isEmpty {
-                                    print("ManageSubjectSheet: Blank Space Baby")
+                                    print(
+                                        "ManageSubjectSheet: Blank Space Baby")
                                     append10()
-//                                    currentGrade.calcCurrentGrade()
+                                    //                                    currentGrade.calcCurrentGrade()
                                 } else {
                                     print(
                                         "ManageSubjectSheet: Not Empty")
                                     if isAddMode {
                                         print(
-                                            "ManageSubjectSheet: Not Empty - Add Mode")
+                                            "ManageSubjectSheet: Not Empty - Add Mode"
+                                        )
                                         currentGrade.enrolledSubjects.append(
                                             currentSubject)
                                         currentGrade.calcCurrentGrade()
@@ -114,7 +119,8 @@ struct ManageSubjectSheet: View {
                                             isToBeIncluded: false)
                                     } else {
                                         print(
-                                            "ManageSubjectSheet: Not Empty - Edit Mode")
+                                            "ManageSubjectSheet: Not Empty - Edit Mode"
+                                        )
                                         currentGrade.calcCurrentGrade()
                                         modelContext.insert(currentGrade)
                                     }
@@ -130,14 +136,8 @@ struct ManageSubjectSheet: View {
                             .tint(.accent)
 
                             //DELETE
-                            Button {
-                                if isAddMode {
-                                    currentSubject = EnrolledSubject(
-                                        subjectIdentifier: "",
-                                        subjectCurrentGrade: 0.0,
-                                        isToBeIncluded: false)
-                                } else {
-
+                            if !isAddMode {
+                                Button {
                                     do {
                                         currentGrade.enrolledSubjects.remove(
                                             at: currentGrade.enrolledSubjects
@@ -148,17 +148,16 @@ struct ManageSubjectSheet: View {
                                     } catch {
                                         print("Epic Fail")
                                     }
+                                    dismiss()
+                                } label: {
+                                    Text("Delete Subject")
+                                        .frame(maxWidth: .infinity)
+                                        .foregroundColor(.matchingBG)
                                 }
-                                dismiss()
-                            } label: {
-                                Text("Delete Subject")
-                                    .frame(maxWidth: .infinity)
-                                    .foregroundColor(.matchingBG)
+                                .padding(.top, 20)
+                                .buttonStyle(.borderedProminent)
+                                .tint(.error)
                             }
-                            .padding(.top, 20)
-                            .buttonStyle(.borderedProminent)
-                            .tint(.error)
-
                         }
                     }
                     .padding(.horizontal, 5.0)
