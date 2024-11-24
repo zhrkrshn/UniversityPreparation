@@ -128,7 +128,7 @@ final class UniversityProgram {
             textColor = .accent
         }
         
-        return Text(GPA.formatted(.percent.precision(.fractionLength(2))))
+        return Text(GPA.formatted(.percent.precision(.fractionLength(1))))
             .font(.title)
             .fontWeight(.regular)
             .foregroundColor(textColor)

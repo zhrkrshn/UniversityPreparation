@@ -152,7 +152,7 @@ struct displayEnrolledSubjectRow: View {
                     .textCase(.uppercase)
                     .font(.title3).fontWeight(.light).foregroundColor(
                         Color.contrastFG)
-            }.frame(width: 100).padding(.leading, -10)
+            }.frame(width: 130).padding(.leading, -10)
             Spacer()
             VStack(alignment: .leading) {
                 Text("Score")
@@ -161,11 +161,11 @@ struct displayEnrolledSubjectRow: View {
                     .foregroundColor(Color.contrastFG).opacity(0.6)
                 Text(
                     theActiveEnrolledSubject.subjectCurrentGrade.formatted(
-                        .percent.precision(.fractionLength(2)))
+                        .percent.precision(.fractionLength(1)))
                 )
                 .textCase(.uppercase)
                 .font(.title3).fontWeight(.light).foregroundColor(Color.contrastFG)
-            }.padding(.horizontal, 10).frame(width: 100).padding(.leading, -10)
+            }.frame(width: 100).padding(.leading, -10)
             Spacer()
             VStack(alignment: .leading) {
                 Text("Grade 12?")
@@ -179,12 +179,11 @@ struct displayEnrolledSubjectRow: View {
                         ? "checkmark.square"
                         : "square"
                 ).imageScale(.medium).padding(.bottom, 3).foregroundStyle(.accent)
-            }.padding(.leading, -10)
-            Spacer()
+            }
             Image(systemName: "chevron.forward")
                 .foregroundStyle(Color.milderFG)
                 .controlSize(.extraLarge)
-                .padding(.leading, 20)
+                .padding(.leading, 5)
         }.padding(.horizontal, 0).padding(.top, 1).padding(.bottom, -1)
         CustomDivider()
 

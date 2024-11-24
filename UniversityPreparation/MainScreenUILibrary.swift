@@ -21,7 +21,7 @@ struct displayGradeSummaryCard: View {
                     .textCase(.uppercase)
                     .font(.headline).fontWeight(.regular)
                     .foregroundColor(Color.contrastFG)
-                Text(gradeInformation.currentGrade.formatted(.percent.precision(.fractionLength(2))))
+                Text(gradeInformation.currentGrade.formatted(.percent.precision(.fractionLength(1))))
                     .font(.title)
                     .fontWeight(.light)
                     .foregroundColor(Color.accent)
@@ -62,7 +62,7 @@ struct coreDisplayGradeSummaryCard: View {
     var body: some View {
         HStack(alignment: .bottom) {
             VStack(alignment: .leading) {
-                Text(gradeInformation.currentGrade.formatted(.percent.precision(.fractionLength(2))))
+                Text(gradeInformation.currentGrade.formatted(.percent.precision(.fractionLength(1))))
                     .font(.title)
                     .fontWeight(.light)
                     .foregroundColor(Color.accent)

@@ -12,7 +12,6 @@ struct ManageSubjectSheet: View {
     var isAddMode: Bool
     @Binding var currentGrade: GradeInformation
     @Binding var currentSubject: EnrolledSubject
-
     @Environment(\.dismiss) var dismiss
     @Environment(\.modelContext) private var modelContext
 
@@ -37,34 +36,59 @@ struct ManageSubjectSheet: View {
                 //Form Start
                 HStack(alignment: .top) {
                     VStack(alignment: .leading) {
-                        Text("Subject Identifier")
-                            .textCase(.uppercase)
-                            .font(.caption)
-                            .fontWeight(.regular)
-                            .foregroundColor(Color.contrastFG).opacity(0.8)
-                            .padding(.top, 6.0)
-                            .padding(.leading, 3.0)
-                            .padding(.bottom, -2.0)
+                        HStack {
+                            Text("Subject Identifier")
+                                .textCase(.uppercase)
+                                .font(.caption)
+                                .fontWeight(.regular)
+                                .foregroundColor(Color.contrastFG).opacity(0.8)
+                                .padding(.top, 6.0)
+                                .padding(.leading, 3.0)
+                                .padding(.bottom, -2.0)
+                            if currentSubject.subjectIdentifier.count >= 8 {
+                                Text("(8 character max!)")
+                                    .textCase(.uppercase)
+                                    .font(.caption)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color.error).opacity(0.8)
+                                    .padding(.top, 6.0)
+                                    .padding(.bottom, -2.0)
+                            }
+                        }
                         TextField(
-                            "Subject Identification String",
+                            "Subject Code (8 characters)",
                             text: $currentSubject.subjectIdentifier
                         )
+                        .onChange(of: currentSubject.subjectIdentifier) { newValue in
+                            if newValue.count > 8 {
+                                currentSubject.subjectIdentifier = String(newValue.prefix(8))
+                            }
+                        }
                         .textFieldStyle(StandardTextFieldStyle())
-                        Text("Current Score")
-                            .textCase(.uppercase)
-                            .font(.caption)
-                            .fontWeight(.regular)
-                            .foregroundColor(Color.contrastFG).opacity(0.8)
-                            .padding(.top, 6.0)
-                            .padding(.leading, 3.0)
-                            .padding(.bottom, -2.0)
+                        HStack {
+                            Text("Current Score")
+                                .textCase(.uppercase)
+                                .font(.caption)
+                                .fontWeight(.regular)
+                                .foregroundColor(Color.contrastFG).opacity(0.8)
+                                .padding(.top, 6.0)
+                                .padding(.leading, 3.0)
+                                .padding(.bottom, -2.0)
+                        }
+
                         TextField(
                             "Set your current score",
                             value: $currentSubject.subjectCurrentGrade,
-                            format: .percent.precision(.fractionLength(2))
+                            format: .percent.precision(.fractionLength(1))
                         )
                         .textFieldStyle(StandardTextFieldStyle())
                         .keyboardType(.decimalPad)
+                        .onChange(of: currentSubject.subjectCurrentGrade) { newValue in
+                            if newValue > 1.0 {
+                                currentSubject.subjectCurrentGrade = 1.0
+                            }
+                        }
+
                         HStack(alignment: .top) {
                             VStack(alignment: .leading) {
                                 Toggle(isOn: $currentSubject.isToBeIncluded) {
