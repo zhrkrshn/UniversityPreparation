@@ -171,7 +171,7 @@ struct ManageUniversityProgramSheet: View {
                                     "Ideal GPA",
                                     value: $univProgram.idealGrade,
                                     format: .percent.precision(
-                                        .fractionLength(0))
+                                        .fractionLength(1))
                                 )
                                 .textFieldStyle(StandardTextFieldStyle())
                                 .keyboardType(.decimalPad)

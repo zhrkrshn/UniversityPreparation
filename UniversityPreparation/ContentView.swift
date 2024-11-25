@@ -50,7 +50,6 @@ struct ContentView: View {
                         //One Line Mode
                         VStack(alignment: .leading) {
                             HStack(alignment: .top) {
-
                                 Text("Welcome")
                                     .font(.largeTitle)
                                     .fontWeight(.light).padding(.leading, 20)

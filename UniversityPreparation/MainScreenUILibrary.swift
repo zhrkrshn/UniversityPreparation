@@ -104,14 +104,18 @@ struct displayUniversitySummaryCard: View {
     @Binding var g12Reference: GradeInformation
     
     var body: some View {
+        //SCREEN PADDING
         VStack(alignment: .leading){
+        //ROW DEFINITION
         HStack(alignment: .center) {
+            //TITLE
             VStack(alignment: .leading) {
                 if !isSameUnivAsPrevious{
                     Text(univProgram.universityName)
                         .textCase(.uppercase)
                         .font(.headline).fontWeight(.regular)
                         .foregroundColor(Color.contrastFG)
+                        .padding(.bottom,-3)
                 }
                 HStack(alignment: .top) {
                     Rectangle().frame(width: 2)
@@ -128,21 +132,8 @@ struct displayUniversitySummaryCard: View {
                                     .font(.caption)
                                     .fontWeight(.regular)
                                     .foregroundColor(Color.milderFG)
-                            }.frame(width: 110)
-                            VStack(alignment: .leading){
-                                univProgram.getPerformanceGuidance(grade11Info: g11Reference, grade12Info: g12Reference)
-                                Text("Top 6 GPA")
-                                    .textCase(.uppercase)
-                                    .font(.caption)
-                                    .fontWeight(.regular)
-                                    .foregroundColor(Color.milderFG)
-                            }.frame(width: 110)
-                            Spacer()
-                        }.padding(.leading, 2)
-                        HStack {
-                            VStack(alignment: .leading){
                                 Text(univProgram.minimumGrade.formatted(.percent.precision(.fractionLength(0))))
-                                    .font(.title2)
+                                    .font(.title3)
                                     .fontWeight(.light)
                                     .foregroundColor(Color.contrastFG).opacity(0.9)
                                 Text("Minimum GPA")
@@ -150,10 +141,17 @@ struct displayUniversitySummaryCard: View {
                                     .font(.caption)
                                     .fontWeight(.regular)
                                     .foregroundColor(Color.milderFG)
-                            }.frame(width: 110)
-                            VStack(alignment: .leading) {
+                            }
+                            Spacer().frame(width: 50)
+                            VStack(alignment: .leading){
+                                univProgram.getPerformanceGuidance(grade11Info: g11Reference, grade12Info: g12Reference)
+                                Text("Top 6 GPA")
+                                    .textCase(.uppercase)
+                                    .font(.caption)
+                                    .fontWeight(.regular)
+                                    .foregroundColor(Color.milderFG)
                                 Text(univProgram.idealGrade.formatted(.percent.precision(.fractionLength(0))))
-                                    .font(.title2)
+                                    .font(.title3)
                                     .fontWeight(.light)
                                     .foregroundColor(Color.contrastFG).opacity(0.9)
                                 Text("Ideal GPA")
@@ -161,18 +159,16 @@ struct displayUniversitySummaryCard: View {
                                     .font(.caption)
                                     .fontWeight(.regular)
                                     .foregroundColor(Color.milderFG)
-                            }.frame(width: 110)
-                            Spacer()
-                        }.padding(.leading, 2)
-                    }.padding(.leading, 5)
-                }.padding(.leading, 5)
-
+                            }
+                        }
+                    }
+                }
             }
             Spacer()
             Image(systemName: "chevron.forward")
                 .foregroundStyle(Color.milderFG)
                 .controlSize(.extraLarge)
-        }.padding(.leading, 2)
+        }
         CustomDivider()
         }
     }

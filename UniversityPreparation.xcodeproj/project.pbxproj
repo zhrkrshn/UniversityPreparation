@@ -50,7 +50,7 @@
 		D59BEE3E2CEA70B700E4A5FD /* ManageSubjectSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageSubjectSheet.swift; sourceTree = "<group>"; };
 		D59BEE402CEA70DF00E4A5FD /* ManageGradeSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageGradeSheet.swift; sourceTree = "<group>"; };
 		D59BEE422CEA710300E4A5FD /* ManageNameSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageNameSheet.swift; sourceTree = "<group>"; };
-		D5A69F142CD0697400071B03 /* UniversityPreparation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniversityPreparation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5A69F142CD0697400071B03 /* Beyond G12.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Beyond G12.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5A69F172CD0697400071B03 /* UniversityPreparationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityPreparationApp.swift; sourceTree = "<group>"; };
 		D5A69F192CD0697400071B03 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D5A69F1D2CD0697500071B03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 		D5A69F152CD0697400071B03 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D5A69F142CD0697400071B03 /* UniversityPreparation.app */,
+				D5A69F142CD0697400071B03 /* Beyond G12.app */,
 				D5A69F262CD0697600071B03 /* UniversityPreparationTests.xctest */,
 				D5A69F302CD0697600071B03 /* UniversityPreparationUITests.xctest */,
 			);
@@ -174,7 +174,7 @@
 			);
 			name = UniversityPreparation;
 			productName = UniversityPreparation;
-			productReference = D5A69F142CD0697400071B03 /* UniversityPreparation.app */;
+			productReference = D5A69F142CD0697400071B03 /* Beyond G12.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D5A69F252CD0697600071B03 /* UniversityPreparationTests */ = {
@@ -479,7 +479,7 @@
 				);
 				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zohar.krishna.universitypreparation;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Beyond G12";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Univ Prep App - Zo_RK_Main";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -517,7 +517,7 @@
 				);
 				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zohar.krishna.universitypreparation;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Beyond G12";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Univ Prep App - Zo_RK_Main";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

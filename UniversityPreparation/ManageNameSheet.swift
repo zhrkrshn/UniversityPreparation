@@ -40,12 +40,27 @@ struct ManageNameSheet: View {
                             .padding(.top, 6.0)
                             .padding(.leading, 3.0)
                             .padding(.bottom, -2.0)
+
                         VStack(alignment: .leading) {
-                            TextField("What do we call you ?", text: $userName)
+                            TextField("What do we call you?", text: $userName)
                                 .textFieldStyle(StandardTextFieldStyle())
+                                .onChange(of: userName) { newValue in
+                                    if newValue.count > 8 {
+                                        userName = String(newValue.prefix(8))
+                                    }
+                                }
                                 .onSubmit {
                                     print("OnSubmit >>" + userName)
                                 }
+                            if userName.count > 7 {
+                                Text("At character max")
+                                    .textCase(.uppercase)
+                                    .font(.caption)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color.error).opacity(0.8)
+                                    .padding(.top, 6.0)
+                                    .padding(.bottom, -2.0)
+                            }
                             Button {
                                 if userName.isEmpty {
                                     print("ManageNameSheet: Blank Space Baby")
