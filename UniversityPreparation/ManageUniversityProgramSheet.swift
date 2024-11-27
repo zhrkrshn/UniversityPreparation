@@ -137,7 +137,7 @@ struct ManageUniversityProgramSheet: View {
                                     "Minimum GPA",
                                     value: $univProgram.minimumGrade,
                                     format: .percent.precision(
-                                        .fractionLength(1))
+                                        .fractionLength(0))
                                 )
                                 .textFieldStyle(StandardTextFieldStyle())
                                 .keyboardType(.decimalPad)
@@ -171,7 +171,7 @@ struct ManageUniversityProgramSheet: View {
                                     "Ideal GPA",
                                     value: $univProgram.idealGrade,
                                     format: .percent.precision(
-                                        .fractionLength(1))
+                                        .fractionLength(0))
                                 )
                                 .textFieldStyle(StandardTextFieldStyle())
                                 .keyboardType(.decimalPad)

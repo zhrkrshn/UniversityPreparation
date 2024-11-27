@@ -124,8 +124,6 @@ struct ManageSubjectSheet: View {
                                 if currentSubject.subjectIdentifier.isEmpty {
                                     print(
                                         "ManageSubjectSheet: Blank Space Baby")
-                                    append10()
-                                    //                                    currentGrade.calcCurrentGrade()
                                 } else {
                                     print(
                                         "ManageSubjectSheet: Not Empty")
@@ -202,14 +200,5 @@ struct ManageSubjectSheet: View {
 
         //FORM END
         Spacer().navigationBarBackButtonHidden(true)
-    }
-    func append10() {
-
-        for i in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16] {
-            let subject = EnrolledSubject(
-                subjectIdentifier: "MCR_" + "\(i)", subjectCurrentGrade: 0.90,
-                isToBeIncluded: true)
-            currentGrade.enrolledSubjects.append(subject)
-        }
     }
 }

@@ -45,14 +45,14 @@ struct ManageNameSheet: View {
                             TextField("What do we call you?", text: $userName)
                                 .textFieldStyle(StandardTextFieldStyle())
                                 .onChange(of: userName) { newValue in
-                                    if newValue.count > 8 {
-                                        userName = String(newValue.prefix(8))
+                                    if newValue.count > 11 {
+                                        userName = String(newValue.prefix(11))
                                     }
                                 }
                                 .onSubmit {
                                     print("OnSubmit >>" + userName)
                                 }
-                            if userName.count > 7 {
+                            if userName.count > 10 {
                                 Text("At character max")
                                     .textCase(.uppercase)
                                     .font(.caption)
@@ -105,6 +105,6 @@ struct ManageNameSheet: View {
 }
 
 #Preview {
-    @Previewable @State var userName: String = "Billy Bob"
+    @Previewable @State var userName: String = "Oh? You're approaching me?"
     ManageNameSheet(userName: $userName)
 }

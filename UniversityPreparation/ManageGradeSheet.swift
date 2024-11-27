@@ -149,10 +149,10 @@ struct displayEnrolledSubjectRow: View {
                     .font(.caption2).fontWeight(.light)
                     .foregroundColor(Color.contrastFG).opacity(0.6)
                 Text(theActiveEnrolledSubject.subjectIdentifier)
-                    .textCase(.uppercase)
+                    //.textCase(.uppercase)
                     .font(.title3).fontWeight(.light).foregroundColor(
                         Color.contrastFG)
-            }.frame(width: 130).padding(.leading, -10)
+            }
             Spacer()
             VStack(alignment: .leading) {
                 Text("Score")
@@ -165,8 +165,9 @@ struct displayEnrolledSubjectRow: View {
                 )
                 .textCase(.uppercase)
                 .font(.title3).fontWeight(.light).foregroundColor(Color.contrastFG)
-            }.frame(width: 100).padding(.leading, -10)
+            }.frame(width: 90)
             Spacer()
+                .frame(width: 20)
             VStack(alignment: .leading) {
                 Text("Grade 12?")
                     .textCase(.uppercase)
@@ -184,8 +185,8 @@ struct displayEnrolledSubjectRow: View {
                 .foregroundStyle(Color.milderFG)
                 .controlSize(.extraLarge)
                 .padding(.leading, 5)
-        }.padding(.horizontal, 0).padding(.top, 1).padding(.bottom, -1)
+        }.padding(.top, 1).padding(.bottom, -1)
         CustomDivider()
-
     }
 }
+

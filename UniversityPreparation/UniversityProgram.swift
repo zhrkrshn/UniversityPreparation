@@ -73,14 +73,6 @@ final class UniversityProgram {
             .padding(.top, 0)
     }
 
-    //TODO - ZOHAR WRITE THIS CODE - USE THIS STYING
-    //ORANGE FOR MISSING NOT IN RANGE OR BELOW RANGE - MINT FOR IN OR ABOVE RANGE
-    //CODE NEEDS TO USE preRequisiteSubjects first and
-    //THEN 6 - preRequisiteSubjects.count should come from
-    //grade11Info.enrolledSubjects[] and grade12Info.enrolledSubjects[]
-    //Create new functions for calculating stuff
-    //and plug them back into this function (like color, 3 of 5 etc.)
-
     func getPerformanceGuidance(
         grade11Info: GradeInformation, grade12Info: GradeInformation
     ) -> some View {

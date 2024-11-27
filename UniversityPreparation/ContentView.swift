@@ -46,11 +46,11 @@ struct ContentView: View {
                     //
                     //Welcome Student Section
                     //
-                    if p_userName.count <= 8 {
+                    if p_userName.count <= 11 {
                         //One Line Mode
                         VStack(alignment: .leading) {
                             HStack(alignment: .top) {
-                                Text("Welcome")
+                                Text("Hello")
                                     .font(.largeTitle)
                                     .fontWeight(.light).padding(.leading, 20)
                                 Text("\(p_userName)!")
@@ -77,48 +77,49 @@ struct ContentView: View {
                             //Data Load Setup for User Name
                             if let savedUserInfo = userInfoArray_DB.first {
                                 p_userName = savedUserInfo.userName
-                            }
-                        }
-                    } else {
-                        //Two Lines Mode
-                        VStack(alignment: .leading) {
-                            HStack(alignment: .top) {
-                                Text("Welcome")
-                                    .font(.largeTitle)
-                                    .fontWeight(.light).padding(.leading, 20)
-                                Spacer()
-                                Image(systemName: "square.and.pencil")
-                                    .imageScale(.large)
-                                    .padding(.trailing, 15)
-                                    .padding(.top, 5)
-                                    .foregroundStyle(
-                                        Color.contrastFG, Color.accent
-                                    )
-                                    .onTapGesture {
-                                        showManageNameSheet = true
-                                    }
-                                    .sheet(isPresented: $showManageNameSheet) {
-                                        ManageNameSheet(userName: $p_userName)
-                                    }
-                            }
-                        }
-                        .onAppear {
-                            //Data Load Setup for User Name
-                            if let savedUserInfo = userInfoArray_DB.first {
-                                p_userName = savedUserInfo.userName
-                            }
-                        }
-                        VStack(alignment: .leading) {
-                            HStack(alignment: .top) {
-                                Text("\(p_userName)!")
-                                    .font(.title)
-                                    .fontWeight(.regular)
-                                    .foregroundStyle(.accent)
-                                    .padding(.leading, 20)
-                                Spacer()
                             }
                         }
                     }
+//                    } else {
+//                        //Two Lines Mode
+//                        VStack(alignment: .leading) {
+//                            HStack(alignment: .top) {
+//                                Text("Welcome")
+//                                    .font(.largeTitle)
+//                                    .fontWeight(.light).padding(.leading, 20)
+//                                Spacer()
+//                                Image(systemName: "square.and.pencil")
+//                                    .imageScale(.large)
+//                                    .padding(.trailing, 15)
+//                                    .padding(.top, 5)
+//                                    .foregroundStyle(
+//                                        Color.contrastFG, Color.accent
+//                                    )
+//                                    .onTapGesture {
+//                                        showManageNameSheet = true
+//                                    }
+//                                    .sheet(isPresented: $showManageNameSheet) {
+//                                        ManageNameSheet(userName: $p_userName)
+//                                    }
+//                            }
+//                        }
+//                        .onAppear {
+//                            //Data Load Setup for User Name
+//                            if let savedUserInfo = userInfoArray_DB.first {
+//                                p_userName = savedUserInfo.userName
+//                            }
+//                        }
+//                        VStack(alignment: .leading) {
+//                            HStack(alignment: .top) {
+//                                Text("\(p_userName)!")
+//                                    .font(.title)
+//                                    .fontWeight(.regular)
+//                                    .foregroundStyle(.accent)
+//                                    .padding(.leading, 20)
+//                                Spacer()
+//                            }
+//                        }
+//                    }
 
                     //
                     //Grades Section
@@ -148,6 +149,7 @@ struct ContentView: View {
                                 displayGradeSummaryCard(
                                     gradeInformation: $p_grade12Info)
                             }
+                            CustomDivider()
                         }
                         .padding(.top, 1.0)
                         .padding(.bottom, 10.0)
